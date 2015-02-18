@@ -7,13 +7,14 @@ The raw dataset was randomly partitioned into two sets, where 21 of the voluntee
 ##B.  Data Processing
 
 A R scrip called “run_analysis.R” contains the program code to produce the processed data file named “tidy_data.txt” for data analysis.   Here shows the steps/code applied for processing the raw data to produce the “tidy_data.txt” data file.
- 	###Step 1 - Use R to download and unzip the compressed folder:   
-	   ```
+ 	
+	###Step 1 - Use R to download and unzip the compressed folder:   
+	   
 	   > url <- "http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
        > download.file(data_url, "rundata.zip")
        > unzip("rundata.zip")
        > list <- list.files("UCI HAR Dataset", recursive = TRUE, full.names = TRUE)
-       ```
+       
       	A list of folders and files is displayed as follows:
 		
 		[1] "UCI HAR Dataset/activity_labels.txt"                         
@@ -46,7 +47,7 @@ A R scrip called “run_analysis.R” contains the program code to produce the proce
         [28] "UCI HAR Dataset/train/y_train.txt"  
 		
 ###Step 2 - Merge the training set (“x_train.txt”) and the test set (“x_test.txt”) to create one data set with subject ID number displayed in “subject_train.txt” and “subject_test.txt” files
-       ```
+       
 	   >test_data <- read.table(list[[15]])
        >train_data <- read.table(list[[27]])
        >measure_data1 <- rbind(test_data, train_data)
@@ -59,16 +60,16 @@ A R scrip called “run_analysis.R” contains the program code to produce the proce
        >var_name <- read.table(list[[2]])[,2]
        >colnames(measure_data1)<- var_name
        >measure_data <- data.frame(subject_data, measure_data1)
-       ```
+       
 ###Step 4 - Extract only the measurements on the mean and standard deviation for each measurement. 
-       ```
+       
 	   >index_mean <- grep("mean()", var_name, fixed = TRUE)
        >index_std <- grep("std()", var_name, fixed = TRUE)
        >index <- sort(c(index_mean, index_std))
        >measure_data_new <- measure_data[, index]
-       ```
+       
 ###Step 5 - Use descriptive activity names in “y_train.txt” and “y-test.txt” files to name the activities in the data set called “run_data”.
-       ```
+       
 	   >activity_test <- read.table(list[[16]])
        >activity_train <- read.table(list[[28]])
        >activity_data <- rbind(activity_test, activity_train)
@@ -77,16 +78,16 @@ A R scrip called “run_analysis.R” contains the program code to produce the proce
        >activity_data$Activity <- factor(activity_data$Activity)
        >levels(activity_data$Activity) <- activity_label
        >run_data = cbind(activity_data, measure_data_new)
-       ```
+       
 ###Step 6 - From the data set in step 5, create a second, independent tidy data set named “tidy_data.txt” with the average of each variable for each activity and each subject.
-       ```
+       
 	   >tidy_data1 <- aggregate(run_data[,-c(1:2)], 
        >list(run_data$Activity,run_data$Subject), mean, na.rm =TRUE)
        >names(tidy_data1)[names(tidy_data1) == "Group.1"] <- "Activity"
        >names(tidy_data1)[names(tidy_data1) == "Group.2"] <- "Subject"
        >tidy_data <- tidy_data1[,c(2, 1, 3:67)]
        >write.table(tidy_data, "tidy_data.txt", sep="\t", row.names = F) 
-       ```
+       
 ###C. Data Information
 
 Tidy_data data set contains 68 variables including Subject, Activity and other 66 average measures as shown in the following table:
