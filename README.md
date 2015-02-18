@@ -2,7 +2,7 @@
 
 ## “Human Activity Recognition Using Smartphones” data set
 
-The program is created to clean the raw data for further data analysis.  The compressed raw data was downloaded at
+The program "run_analysis.R" was created to clean the raw data for further data analysis.  The compressed raw data was downloaded at
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 I first merged the measurements from the raw training set data (“x_train.txt”) and from the raw test set data (“x_test.txt”) to create one data set with the subject ID number and type of the activity attached.  There are 561 measurements.
