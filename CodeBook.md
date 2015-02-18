@@ -8,7 +8,7 @@ The raw dataset was randomly partitioned into two sets, where 21 of the voluntee
 
 A R scrip called “run_analysis.R” contains the program code to produce the processed data file named “tidy_data.txt” for data analysis.   Here shows the steps/code applied for processing the raw data to produce the “tidy_data.txt” data file.
  	
-	###Step 1 - Use R to download and unzip the compressed folder:   
+###Step 1 - Use R to download and unzip the compressed folder:   
 	   
 	   > url <- "http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
        > download.file(data_url, "rundata.zip")
