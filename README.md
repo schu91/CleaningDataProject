@@ -10,6 +10,7 @@ Then, I extracted only the 66 measurements that were the mean and standard devia
 
 Here is a portion of the tidy_data.txt file:
 
+```
 Subject	Activity	tBodyAcc.mean...X	tBodyAcc.mean...Y	tBodyAcc.mean...Z	tBodyAcc.std...X	tBodyAcc.std...Y
 1	WALKING	0.277330759	-0.017383819	-0.111148104	-0.283740259	0.114461337
 1	WALKING_UPSTAIRS	0.25546169	-0.023953149	-0.097302002	-0.354708025	-0.002320265
@@ -19,3 +20,5 @@ Subject	Activity	tBodyAcc.mean...X	tBodyAcc.mean...Y	tBodyAcc.mean...Z	tBodyAcc.
 1	LAYING	0.221598244	-0.040513953	-0.113203554	-0.928056469	-0.836827406
 2	WALKING	0.276426586	-0.01859492	-0.105500358	-0.423642838	-0.078091253
 2	WALKING_UPSTAIRS	0.24716479	-0.021412113	-0.1525139	-0.304376406	0.10802728
+
+```
