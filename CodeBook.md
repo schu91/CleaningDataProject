@@ -56,7 +56,7 @@ A R scrip called “run_analysis.R” contains the program code to produce the proce
        >subject_data <- rbind(subject_test, subject_train)
        >colnames(subject_data) <- "Subject"
        
-       Step 3 - label the data set with descriptive variable names in features.txt.
+###Step 3 - label the data set with descriptive variable names in features.txt.
        >var_name <- read.table(list[[2]])[,2]
        >colnames(measure_data1)<- var_name
        >measure_data <- data.frame(subject_data, measure_data1)
